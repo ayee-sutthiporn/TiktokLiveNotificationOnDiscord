@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  tiktok-notifier:
+    build: .
+    container_name: miyo-tiktok-discord-notifier
+    restart: always
+    environment:
+      - TZ=Asia/Bangkok
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - TIKTOK_USERNAME=${TIKTOK_USERNAME}
