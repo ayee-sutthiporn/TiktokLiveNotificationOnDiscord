@@ -18,8 +18,9 @@ pipeline {
         stage('Build & Deploy') {
             steps {
                 script {
-                    sh 'docker-compose down'
-                    sh 'docker-compose up -d --build'
+                    // Try the modern docker compose plugin first, fallback to older standalone docker-compose
+                    sh 'docker compose down'
+                    sh 'docker compose up -d --build'
                 }
             }
         }
